@@ -1,8 +1,17 @@
-import json
-from pprint import pprint
+from utils import *
+from utils import _5_executed_operations
+
+file_json = 'operations.json'
+
+def show_last_5_executed_operations():
+
+    """вывод программы"""
+
+    operation = open_json(file_json)
+    executed_op = sort_transactions(operation)
+    sorted_operations = executed_operations(executed_op)
+    print(_5_executed_operations(sorted_operations))
 
 
-with open('operations.json', 'r', encoding='utf-8') as file:
-    data = json.load(file)
-
-    pprint(data)
+if __name__ == "__main__":
+    show_last_5_executed_operations()
